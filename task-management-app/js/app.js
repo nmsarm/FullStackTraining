@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const submitButton = document.getElementById('add-task');
     const taskFilter = document.getElementById('task-filter');
     const taskSearch = document.getElementById('task-search');
+    const sortBy = document.getElementById('task-sort');
     const taskTable = document.createElement('table');
     
     // Save tasks to local storage
@@ -43,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <td>
                             <button class="edit-task">Edit</button>
                             <button class="delete-task">Delete</button>
-                            <button class="complete-task">${task.completed ? 'Unmark' : 'Complete'}</button>
+                            <button class=${task.completed ? 'unmark' : 'complete-task'}>${task.completed ? 'Unmark' : 'Complete'}</button>
                         </td>
                     </tr>
                 `).join('')}
@@ -93,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if(confirm("Are you sure you want to delete this task?")){
                 tasks.splice(taskIndex, 1);
             }
-        } else if (e.target.classList.contains('complete-task')) { 
+        } else if (e.target.classList.contains('complete-task') || e.target.classList.contains('unmark')) { 
             task.completed = !task.completed;    
         }
 
@@ -122,6 +123,20 @@ document.addEventListener('DOMContentLoaded', () => {
         );
         renderTasks(filteredTasks);
     });
+
+    // Function to sort tasks
+    sortBy.addEventListener('change', () => {
+        const sortKey = sortBy.value;
+        tasks.sort((a, b) => {
+            if (sortKey === 'date') {
+                return new Date(a[sortKey]) - new Date(b[sortKey]);
+            } else if (sortKey === 'title' || sortKey === 'description') {
+                return a[sortKey].localeCompare(b[sortKey]);
+            }
+        });
+        renderTasks(tasks);
+    });
+    
 
     renderTasks(tasks);
 });

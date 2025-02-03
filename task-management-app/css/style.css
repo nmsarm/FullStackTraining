@@ -166,6 +166,15 @@ button.complete-task:hover {
     font-weight: 800;
 }
 
+.unmark {
+    background: #ffc107;
+    color: #fff;
+}
+
+.unmark:hover {
+    background: #d39e00;
+}
+
 /* RESPONSIVENESS */
 
 @media screen and (max-width: 768px) {

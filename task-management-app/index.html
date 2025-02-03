@@ -3,9 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title> Task Management App </title>
 </head>
 <body>
-    
+    <div class="container">
+        <header>
+            <h1 class="header-text">Task Management Application</h1>
+        </header>
+        <hr>
+         <!-- Form --> 
+        <form class="task-form" id="task-form">
+            <label for="task-title">Task Title: </label>
+            <input type="text" id="task-title" placeholder="Enter Title" required>
+
+            <label for="task-description">Task Description: </label>
+            <textarea id="task-description" placeholder="Enter Description" required></textarea>
+
+            <label for="task-date">Due Date: </label>
+            <input type="date" id="task-date" required>
+
+            <button type="submit" id="add-task">Add Task</button>
+        </form>
+        <div class="filter-container">
+            <select class="task-filter" id="task-filter">
+                <option value="all">All Tasks</option>
+                <option value="completed">Completed Tasks</option>
+                <option value="incomplete">Incomplete Tasks</option>
+            </select>
+            <input type="text" id="task-search" placeholder="Search Tasks by Title or Description" required>
+        </div>
+        <!-- Tasks Table -->        
+        <table class="task-table" id="task-table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Due Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="task-list">
+                <!-- Tasks will be displayed here -->
+            </tbody>
+        </table>
+    </div>
+    <script src="./js/app.js"></script>
 </body>
 </html>

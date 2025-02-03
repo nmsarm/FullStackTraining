@@ -21,6 +21,7 @@ body {
     font-weight: 700;
     margin-top: 1rem;
     margin-bottom: 1rem;
+    color: #c82333;
 }
 
 /* FORM */
@@ -68,6 +69,9 @@ form button {
     flex-direction: row;
 }
 
+form button:hover {
+    background: #0c63e4;
+}
 
 /* FILTER */
 
@@ -94,6 +98,7 @@ table {
     border-collapse: collapse;
     margin-top: 2em;
     width: 100%;
+    table-layout: fixed;
 }
 
 th, td {
@@ -115,16 +120,26 @@ td button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    width: 25%;
 }
 
 button.edit-task {
-    background: #ffc107;
-    color: #000;
+    background: #0dcaf0;
+    color: #fff;
 }
+
+button.edit-task:hover {
+    background: #0ba8d9;
+}
+
 
 button.delete-task {
     background: #dc3545;
     color: #fff;
+}
+
+button.delete-task:hover {
+    background: #c82333;
 }
 
 button.complete-task {
@@ -132,9 +147,48 @@ button.complete-task {
     color: #fff;
 }
 
+button.complete-task:hover {
+    background: #155734;
+}
+
 .done{
     text-decoration: line-through;
     color: #888;
 }
 
+.completed{
+    color: #198754;
+    font-weight: 800;
+}
+
+.pending {
+    color: #ffc107;
+    font-weight: 800;
+}
+
 /* RESPONSIVENESS */
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    form button {
+        width: 100%;
+    }
+
+    input[type="date"] {
+        width: 100%;
+    }
+
+    .filter-container{
+        flex-direction: column;
+    }
+    .filter-container input, .filter-container select {
+        width: 100%;
+    }
+
+    td button {
+        width: 100%;
+    }
+}

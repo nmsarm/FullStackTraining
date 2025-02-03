@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <td class=${task.completed ? 'done' : ''}>${task.title}</td>
                         <td class=${task.completed ? 'done' : ''}>${task.description}</td>
                         <td class=${task.completed ? 'done' : ''}>${task.date}</td>
-                        <td>${task.completed ? 'Completed' : 'Pending'}</td>
+                        <td class=${task.completed ? 'completed' : 'pending'}>${task.completed ? 'Completed' : 'Pending'}</td>
                         <td>
                             <button class="edit-task">Edit</button>
                             <button class="delete-task">Delete</button>

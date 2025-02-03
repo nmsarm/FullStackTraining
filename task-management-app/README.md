@@ -1,4 +1,4 @@
-# TASK MANAGEMENT APPLICATION
+# Task Management Application
 
 ## Overview
 

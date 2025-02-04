@@ -99,6 +99,7 @@ table {
     margin-top: 2em;
     width: 100%;
     table-layout: fixed;
+    overflow: auto;
 }
 
 th, td {
@@ -124,12 +125,12 @@ td button {
 }
 
 button.edit-task {
-    background: #0dcaf0;
+    background: #0d6efd;
     color: #fff;
 }
 
 button.edit-task:hover {
-    background: #0ba8d9;
+    background: #0c63e4;
 }
 
 
@@ -161,7 +162,7 @@ button.complete-task:hover {
     font-weight: 800;
 }
 
-.pending {
+.incomplete {
     color: #ffc107;
     font-weight: 800;
 }
@@ -199,5 +200,9 @@ button.complete-task:hover {
 
     td button {
         width: 100%;
+    }
+
+    td.desc{
+        word-wrap: break-word;
     }
 }

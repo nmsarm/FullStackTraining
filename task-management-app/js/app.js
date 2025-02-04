@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Get references to DOM elements
+     // Get references to DOM elements
     const taskForm = document.getElementById('task-form');
     const taskTitle = document.getElementById('task-title');
     const taskDescription = document.getElementById('task-description');
@@ -9,10 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const taskSearch = document.getElementById('task-search');
     const sortBy = document.getElementById('task-sort');
     const taskTable = document.createElement('table');
-
-    // Initialize variables for editing tasks
-    let isEditing = false;
-    let editIndex = null;
     
     // Load tasks from local storage
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
@@ -21,6 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const saveTasks = () => {
         localStorage.setItem('tasks', JSON.stringify(tasks));
     };
+
+    // Initialize variables for editing tasks
+    let isEditing = false;
+    let editIndex = null;
 
     // Append table to the container
     document.querySelector('.table-container').appendChild(taskTable);
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const task = tasks[taskIndex];
 
         if (e.target.classList.contains('edit-task')) {
-            // Edit task
+             // Edit task
             taskTitle.value = task.title;
             taskDescription.value = task.description;
             taskDate.value = task.date;

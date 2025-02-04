@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+     // Get references to DOM elements
     const taskForm = document.getElementById('task-form');
     const taskTitle = document.getElementById('task-title');
     const taskDescription = document.getElementById('task-description');
@@ -9,8 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const sortBy = document.getElementById('task-sort');
     const taskTable = document.createElement('table');
     
-    // Save tasks to local storage
+    // Load tasks from local storage
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+    // Function to save tasks to local storage
     const saveTasks = () => {
         localStorage.setItem('tasks', JSON.stringify(tasks));
     };
@@ -22,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Append table to the container
     document.querySelector('.table-container').appendChild(taskTable);
 
+    // Function to render tasks
     const renderTasks = (tasksToRender) => {
         taskTable.innerHTML = `
         <table class="task-table" id="task-table">
@@ -64,11 +68,13 @@ document.addEventListener('DOMContentLoaded', () => {
         };
        
         if (isEditing) {
+            // Update existing task
             tasks[editIndex] = newTask;
             isEditing = false;
             editIndex = null;
             submitButton.textContent = 'Add Task';
         } else {
+            // Add new task
             tasks.push(newTask);
         }
 
@@ -84,6 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const task = tasks[taskIndex];
 
         if (e.target.classList.contains('edit-task')) {
+            // Edit task
             taskTitle.value = task.title;
             taskDescription.value = task.description;
             taskDate.value = task.date;
@@ -91,10 +98,12 @@ document.addEventListener('DOMContentLoaded', () => {
             editIndex = taskIndex;
             submitButton.textContent = 'Edit Task'; 
         } else if (e.target.classList.contains('delete-task')) {
+            // Delete task
             if(confirm("Are you sure you want to delete this task?")){
                 tasks.splice(taskIndex, 1);
             }
         } else if (e.target.classList.contains('complete-task') || e.target.classList.contains('unmark')) { 
+            // Toggle task completion
             task.completed = !task.completed;    
         }
 
@@ -137,6 +146,6 @@ document.addEventListener('DOMContentLoaded', () => {
         renderTasks(tasks);
     });
     
-
+    // Initial render of tasks
     renderTasks(tasks);
 });

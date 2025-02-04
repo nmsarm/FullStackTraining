@@ -26,6 +26,7 @@ task-management-app
 │   └── app.js
 ├── index.html
 └── README.md
+```
 
 ## Running the Application
 

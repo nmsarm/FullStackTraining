@@ -14,7 +14,7 @@ const Characters = () => {
             <Search />
             <Sort />
         </div>
-       <div className="row m-3 grid gap-3 justify-content-center">
+       <div className="row m-3 grid gap-4 justify-content-center">
           {characters.map(character => (
             <Card key={character.id} character={character}/>
           ))}

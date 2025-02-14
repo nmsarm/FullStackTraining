@@ -8,8 +8,8 @@ const Card = ({ character }) => {
   }
 
   return (
-    <div className="card" style={{width: "20rem"}}>
-      <img src={character.image} className="card-img-top" alt="character-image" />
+    <div className="card p-0" style={{width: "20rem"}}>
+      <img src={character.image} className="card-img-top " alt="character-image" />
       <div className="card-body">
         <h5 className="card-title text-center">{character.name}</h5>
         <p className="card-text m-0 text-center text-muted">Created {formatDate(dateStr)} </p>

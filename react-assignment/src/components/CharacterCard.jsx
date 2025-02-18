@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react'
 import styles from '../styles/modules/CharacterCard.module.css';
 
 const Card = ({ character }) => {
-  const dateStr = character.created;
+  const dateStr = character.created; //2017-11-04T18:48:46.250Z
   const formatDate = (dateStr) => {
     const options = { year: "numeric", month: "long", day: "numeric"}
-    return new Date(dateStr).toLocaleDateString(undefined, options)
+    return new Date(dateStr).toLocaleDateString(undefined, options) //November 4, 2017
   }
   const characterData = [
     { label: "ID", value: character.id },

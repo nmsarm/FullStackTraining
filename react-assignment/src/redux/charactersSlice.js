@@ -40,6 +40,10 @@ const charactersSlice = createSlice({
         state.filters[name] = state.filters[name].filter(item => item !== value);
       }
     },
+    removeFilter(state, action) {
+      const { name, value } = action.payload;
+      state.filters[name] = state.filters[name].filter(item => item !== value);
+    },
     setSearchQuery(state, action) {
       state.searchQuery = action.payload;
     },
@@ -63,6 +67,6 @@ const charactersSlice = createSlice({
   },
 });
 
-export const { setCharacters, setLoading, setError, setFilters, setSearchQuery, setSortOrder } = charactersSlice.actions;
+export const { setCharacters, setLoading, setError, setFilters, removeFilter, setSearchQuery, setSortOrder } = charactersSlice.actions;
 
 export default charactersSlice.reducer;

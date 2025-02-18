@@ -1,12 +1,20 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { setSortOrder} from '../redux/charactersSlice'
 
 const Sort = () => {
+    const dispatch = useDispatch();
+  
+    const handleSort = (event) => {
+      dispatch(setSortOrder(event.target.value));
+    };
+  
   return (
     <div className="col-2">
         <div className="input-group mb-3">
-            <select className="form-select" aria-label="Default select example">
-                <option value="1">Ascending</option>
-                <option value="2">Descending</option>
+            <select className="form-select bg-light" aria-label="Default select example" onChange={handleSort}>
+                <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
             </select>
         </div>
     </div>

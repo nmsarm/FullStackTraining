@@ -1,4 +1,4 @@
-import { React }from 'react'
+import React from 'react';
 import Card from './CharacterCard'
 import Search from './Search'
 import Sort from './Sort'
@@ -9,7 +9,7 @@ const Characters = () => {
   const characters = useSelector(selectFilteredCharacters);
 
   return (
-    <div className="col-10 bg-light text-white py-5">
+    <div className="col-10 bg-white text-white py-5">
         <div className="d-flex justify-content-end mx-5">
             <Search />
             <Sort />

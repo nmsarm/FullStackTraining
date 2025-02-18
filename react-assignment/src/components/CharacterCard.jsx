@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from '../styles/modules/CharacterCard.module.css';
 
 const Card = ({ character }) => {
   const dateStr = character.created;
@@ -15,17 +16,19 @@ const Card = ({ character }) => {
     { label: "Last Location", value: character.location.name }
   ];
 
+  const cardStyle = `card p-0 ${styles.card}`;
+
   return (
-    <div className="card p-0" style={{width: "20rem"}}>
+    <div className={cardStyle} style={{width: "20rem"}}>
       <img src={character.image} className="card-img-top" alt="character-image" />
-      <div className="card-body">
-        <h5 className="card-title text-center">{character.name}</h5>
-        <p className="card-text m-0 text-center text-muted">Created {formatDate(dateStr)}</p>
+      <div className="card-body bg-dark text-white">
+        <h5 className="card-title text-center text-warning">{character.name}</h5>
+        <p className="card-text m-0 text-center">Created {formatDate(dateStr)}</p>
         <hr />
         {characterData.map((data, index) => (
           <div className="row" key={index}>
             <div className="col text-start"><p className="card-text m-0 fw-bold">{data.label}:</p></div>
-            <div className="col text-end"><p className="card-text m-0">{data.value}</p></div>
+            <div className="col text-end text-warning"><p className="card-text m-0">{data.value}</p></div>
           </div>
         ))}
       </div>

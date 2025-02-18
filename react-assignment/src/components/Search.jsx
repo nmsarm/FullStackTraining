@@ -1,10 +1,18 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { setSearchQuery } from '../redux/charactersSlice'
 
 const Search = () => {
+  const dispatch = useDispatch();
+
+  const handleSearch = (event) => {
+    dispatch(setSearchQuery(event.target.value));
+  };
+
   return (
     <div className="col-4 px-3">
         <div className="input-group mb-3">
-            <input type="text" id="task-search" className="form-control" placeholder="Search by Name" />
+            <input type="text" id="search" className="form-control bg-light" placeholder="Search by Name" onChange={handleSearch} />
         </div>
     </div>
   )

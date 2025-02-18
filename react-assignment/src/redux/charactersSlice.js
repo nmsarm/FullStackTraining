@@ -14,11 +14,32 @@ const charactersSlice = createSlice({
     characters: [], 
     loading: false, 
     error: null, 
+    filters: {
+      species: [],
+      gender: [],
+      origin: []
+    },
+    searchQuery: '',
+    sortOrder: ''
   },
   reducers: {
     setCharacters(state, action) {
       state.characters = action.payload;
     },
+    setFilters(state, action) {
+      const { name, value, checked } = action.payload;
+      if (checked) {
+        state.filters[name].push(value);
+      } else {
+        state.filters[name] = state.filters[name].filter(item => item !== value);
+      }
+    },
+    setSearchQuery(state, action) {
+      state.searchQuery = action.payload;
+    },
+    setSortOrder(state, action) {
+      state.sortOrder = action.payload;
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -36,6 +57,6 @@ const charactersSlice = createSlice({
   },
 });
 
-export const { setCharacters } = charactersSlice.actions;
+export const { setCharacters, setFilters, setSearchQuery, setSortOrder } = charactersSlice.actions;
 
 export default charactersSlice.reducer;

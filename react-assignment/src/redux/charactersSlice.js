@@ -26,6 +26,12 @@ const charactersSlice = createSlice({
     setCharacters(state, action) {
       state.characters = action.payload;
     },
+    setLoading(state, action) { 
+      state.loading = action.payload;
+    },
+    setError(state, action) {
+      state.error = action.payload;
+    },
     setFilters(state, action) {
       const { name, value, checked } = action.payload;
       if (checked) {
@@ -57,6 +63,6 @@ const charactersSlice = createSlice({
   },
 });
 
-export const { setCharacters, setFilters, setSearchQuery, setSortOrder } = charactersSlice.actions;
+export const { setCharacters, setLoading, setError, setFilters, setSearchQuery, setSortOrder } = charactersSlice.actions;
 
 export default charactersSlice.reducer;

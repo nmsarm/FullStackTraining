@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from './CharacterCard'
 import Search from './Search'
 import Sort from './Sort'
@@ -8,9 +8,26 @@ import { selectFilteredCharacters } from '../redux/selectors';
 const Characters = () => {
   const characters = useSelector(selectFilteredCharacters);
 
+    const [isMobile, setIsMobile] = useState(false);
+  
+    // Mobile screen size
+    const handleResize = () => {
+        if (window.innerWidth < 995) {
+            setIsMobile(true)
+        }  else {
+            setIsMobile(false)
+        }
+    }
+  
+    // Event listener for resize
+      useEffect(() => {
+        window.addEventListener("resize", handleResize)
+    })
+  
+
   return (
-    <div className="col-10 bg-white text-white py-5 p-3">
-        <div className="d-flex justify-content-end mx-5">
+    <div className={isMobile? "col-sm-12 bg-white text-white px-2" : "col-xl-10 bg-white text-white py-5 p-3"}>
+        <div className={isMobile? "row mx-5 justify-content-center" : "d-flex justify-content-end mx-5"}>
             <Search />
             <Sort />
         </div>

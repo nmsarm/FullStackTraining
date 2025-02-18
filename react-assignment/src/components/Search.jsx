@@ -10,7 +10,7 @@ const Search = () => {
   };
 
   return (
-    <div className="col-4 px-3">
+    <div className="col-xl-4 px-3">
         <div className="input-group mb-3">
             <input type="text" id="search" className="form-control bg-light" placeholder="Search by Name" onChange={handleSearch} />
         </div>

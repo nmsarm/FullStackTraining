@@ -10,7 +10,7 @@ const Sort = () => {
     };
   
   return (
-    <div className="col-2">
+    <div className="col-xl-2">
         <div className="input-group mb-3">
             <select className="form-select bg-light" aria-label="Default select example" onChange={handleSort}>
                 <option value="asc">Ascending</option>

@@ -39,10 +39,10 @@ const Filters = () => {
   ];
 
   return (
-    <div className="col-2 bg-secondary text-start text-white py-4 min-vh-100">
-      <h2 className="mb-4 px-2">Filters</h2>
+    <div className="col-2 bg-white text-start text-dark px-3 py-5 ">
+      <h2 className="mb-4 px-4">Filters</h2>
       {filterData.map((filterCategory, index) => (
-        <div className="card p-1 m-2" key={index}>
+        <div className="card p-1 m-4" key={index}>
           <div className="card-body">
             <h5 className="text-center mb-4">{filterCategory.category}</h5>
             {filterCategory.options.map((option, idx) => (

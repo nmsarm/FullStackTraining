@@ -72,7 +72,6 @@ const Filters = () => {
               <div className="accordion-body">
                 {filterData.map((filterCategory, index) => (
                   <div className="mb-2" key={index}>
-                    {/* <div className="card-body"> */}
                       <h5 className="text-start">{filterCategory.category}</h5>
                       {filterCategory.options.map((option, idx) => (
                         <div className="form-check" key={idx}>
@@ -90,7 +89,6 @@ const Filters = () => {
                           </label>
                         </div>
                       ))}
-                    {/* </div> */}
                   </div>
                 ))}
               </div>

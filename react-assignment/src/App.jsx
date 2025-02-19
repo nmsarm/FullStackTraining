@@ -8,6 +8,7 @@ import Filter from './components/Filters';
 function App() {
   const dispatch = useDispatch();
 
+  //Dispatches the fetchCharacters action to fetch character data from the API 
   useEffect(() => {
     dispatch(fetchCharacters());
   }, [dispatch]);

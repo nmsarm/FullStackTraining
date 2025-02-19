@@ -16,7 +16,7 @@ const Card = ({ character }) => {
     { label: "Last Location", value: character.location.name }
   ];
 
-  const cardStyle = `card p-0 ${styles.card}`;
+  const cardStyle = `card p-0 border-dark border-2 ${styles.card}`;
 
   const [isMobile, setIsMobile] = useState(false);
 

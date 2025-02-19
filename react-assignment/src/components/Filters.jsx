@@ -15,7 +15,6 @@ const Filters = () => {
     dispatch(removeFilter({ name, value }));
   };
 
-
   const filterData = [
     {
       category: 'Species',
@@ -41,7 +40,6 @@ const Filters = () => {
         { name: "origin", value: "Abadango", id: "originAbadango", for: "originAbadango" }
       ]
     }
-
   ];
 
   const [isMobile, setIsMobile] = useState(false);
@@ -79,7 +77,7 @@ const Filters = () => {
                       {filterCategory.options.map((option, idx) => (
                         <div className="form-check" key={idx}>
                           <input
-                            className="form-check-input"
+                            className="form-check-input border-2"
                             name={option.name}
                             type="checkbox"
                             value={option.value || ''}
@@ -103,13 +101,13 @@ const Filters = () => {
         <div>
           <h2 className="mb-4 px-4">Filters</h2>
           {filterData.map((filterCategory, index) => (
-            <div className="card p-1 m-4" key={index}>
+            <div className="card p-1 m-4 border-2 border-dark" key={index}>
               <div className="card-body">
                 <h5 className="text-center mb-4">{filterCategory.category}</h5>
                 {filterCategory.options.map((option, idx) => (
                   <div className="form-check" key={idx}>
                     <input
-                      className="form-check-input"
+                      className="form-check-input border-2"
                       name={option.name}
                       type="checkbox"
                       value={option.value}
